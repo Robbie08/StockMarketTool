@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+//---------------- bootstrap components --------------------
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
@@ -11,7 +11,7 @@ class MainNavigation extends React.Component {
 
     render(){
         return(
-            <div class="MainNav">
+            <div className="MainNav">
                 <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="#home">MarketPro</Navbar.Brand>
                 <Nav className="mr-auto">
