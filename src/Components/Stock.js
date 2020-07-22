@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-
 class Stock extends React.Component {
     
     constructor(props){
@@ -20,7 +19,7 @@ class Stock extends React.Component {
         }        
     }
 
-    // when component has mounted
+    // when component has mounted we will fetch our stock
     componentDidMount(){
         this.fetchStock();
     }
@@ -52,6 +51,16 @@ class Stock extends React.Component {
                         stockChartYValuesFunction.push(data['Time Series (Daily)'][key]['1. Open']);
                     }
 
+                    var curr_day = new Date().getDate(); // get our current date
+                    var curr_month = new Date().getMonth() +1; // get our current month for some reason it gets last month so add 1
+                    var curr_year = new Date().getFullYear(); // get our current year
+
+                    
+                    let curr_date = `${curr_year}-0${curr_month}-${curr_day}`; // YYYY-MM-DD format for our API call
+                    
+                    // ------------------- LEFT OFF HERE ------------------------------
+                    // lets get the open and close prices
+                    // console.log(data['Time Series (Daily)'][curr_date]['1. Open']);
                     //console.log(stockChartXValuesFunction);
 
                     // now let's change the state of the x and y values
@@ -70,7 +79,7 @@ class Stock extends React.Component {
                     <Col className="stock-info">
                         <h2>{this.state.stockTicker}</h2>
                         <h3>$00.00</h3>
-                        <h5>Open : $00.00</h5>
+                        <h5>Open: $00.00</h5>
                         <h5>Close: $00.00</h5>
                         <h5>24-hour High: $00.00</h5>
                         <h5>24-hour Low : $00.00</h5>
