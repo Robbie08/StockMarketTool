@@ -21,7 +21,7 @@ class Stock extends React.Component {
 
     // when component has mounted we will fetch our stock
     componentDidMount(){
-        this.fetchStock();
+        this.fetchStock(); // calls and fetch API JSON data
     }
 
 
@@ -29,8 +29,6 @@ class Stock extends React.Component {
     fetchStock(){
         const pointerToThis = this; // gain access to our states
         const API_KEY = "E1HW7W3FEC4GRLRD"; // our API KEY for the AlphaVantage.co
-        let STOCK_TICKER = "TSLA"; // ticker symbol for stock we want
-
         let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.state.stockTicker}&outputsize=compact&apikey=${API_KEY}`;
         let stockChartXValuesFunction = [];
         let stockChartYValuesFunction = [];
@@ -75,6 +73,8 @@ class Stock extends React.Component {
         return(
             <div>
                 <h1>Welcome to MarketPro</h1>
+
+                <Row><Col>Time Series Graph</Col></Row>
                 <Row className="main-border">
                     <Col className="stock-info">
                         <h2>{this.state.stockTicker}</h2>
@@ -84,7 +84,6 @@ class Stock extends React.Component {
                         <h5>24-hour High: $00.00</h5>
                         <h5>24-hour Low : $00.00</h5>
                     </Col>
-                    <Col>Time Series Graph</Col>
                 </Row>
             </div>
         );
